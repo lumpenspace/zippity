@@ -1,0 +1,28 @@
+# Instructions
+
+## TODOs
+
+Copy these todos into a file called "Note.md" in the root of your project.
+
+You will use that file to keep track of your progress.
+
+{% for path, data in todos.items()
+%}{{ loop.index }}{% if data.todos | length > 0
+  %}{% for todo in data.todos
+%}{{loop.index1}}. [ ] {{todo[1]}}
+    *([{{path.split("/")[-1]}}:{{ todo[0] }}]({{path}}:{{ todo[0] }}))*{% endfor %}{% endif %}
+{% endfor %}
+
+## File Content Code Blocks
+
+Copy each code block into the appropriate file.{%
+for path, data in todos.items() %}
+
+### {{ path.split("/")[-1] }}
+
+```{{ data.language }} file:{{ path }}
+
+{{ data.content }}
+```
+
+{% endfor %}
