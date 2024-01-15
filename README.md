@@ -13,7 +13,7 @@ This is a Python command-line interface (CLI) package developed using Poetry.
 ## Installation
 
 ```shell
-pipx install zippity
+pipx install zippity-py
 ```
 
 ## Usage
