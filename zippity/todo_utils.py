@@ -10,7 +10,7 @@ Todo = TypedDict(
     },
 )
 
-FileTodos = (
+FileTodos = TypedDict(
     "FileTodos",
     {
         "todos": List[Todo],
@@ -46,7 +46,6 @@ def search_todos_in_file(file: FileData) -> List[Todo]:
     comments = comment_parser.extract_comments_from_str(
         file_content, mime=file["mimetype"]
     )
-    print(comments)
     for comment in comments:
         if comment.text().strip().startswith("TODO"):
             todos.append(

@@ -1,15 +1,17 @@
-# Zippity - Collect your TODOs for ChatGPT to use.
+# Zippity - dum lil CLI to collect TODOs for ChatGPT
+
+[![PyPI version](https://badge.fury.io/py/zippity.svg)](https://badge.fury.io/py/zippity)
+[![Build Status](https://travis-ci.com/ChatGPT/zippity.svg?branch=master)](https://travis-ci.com/ChatGPT/zippity)
+[![codecov](https://codecov.io/gh/ChatGPT/zippity/branch/master/graph/badge.svg)](https://codecov.io/gh/ChatGPT/zippity)
+[![Documentation Status](https://readthedocs.org/projects/zippity/badge/?version=latest)](https://zippity.readthedocs.io/en/latest/?badge=latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is a Python command-line interface (CLI) package developed using Poetry.
 
 ## Installation
 
-To install this package, you need to have Poetry installed. If you don't have it, you can install it by following the instructions on the [official Poetry website](https://python-poetry.org/docs/#installation).
-
-Once you have Poetry installed, you can install this package by navigating to the project directory and running:
-
-```bash
-poetry install
+```shell
+pipx install zippity_py
 ```
 
 ## Usage
@@ -17,18 +19,51 @@ poetry install
 After installation, you can use the CLI by running:
 
 ```bash
-poetry run my-package
+
+
+> zippity --help
+
+Usage: zippity [OPTIONS] [SOURCE_DIRECTORY]
+
+Options:
+  -e, --extensions TEXT (Default: '.py,.js,.ts')
+  -r, --result_file PATH  (Default: 'ZIPPITYDO.md')
+  -t, --template_file PATH
+  --help    
 ```
 
-Replace `my-package` with the actual name of the package.
+## Template
 
-## Testing
+Templates are jinja markdown files, that get passed an list of these:
 
-To run the tests, navigate to the project directory and run:
-ɪːjaupʰ
-```bash
-poetry run pytest
+```python
+FileTodos = TypedDict(
+    "FileTodos",
+    {
+        "todos": List[Todo],
+        "content": str,
+        "language": str,
+        "mimetype": str,
+        "name": str,
+    },
+)
 ```
+
+Each `FileTodo` will have a list of todos, like this:
+
+```python
+Todo = TypedDict(
+    "Todo",
+    {
+        "line_number": int,
+        "text": str,
+    },
+)
+```
+
+The default template is in [template/template.md](zippity/template/default.md.jinja); once compiled it looks like this:
+
+![Screenshot](screenshot.pngpng>)
 
 ## Contributing
 

@@ -1,5 +1,11 @@
 # Instructions
 
+Copy the contents of the todos and code blocks into the appropriate files.
+
+Once that is done, go through each of the todos in order and propose a solution to the user.
+
+Upon approval, implement the solution and mark the todo as complete.
+
 ## TODOs
 
 Copy these todos into a file called "Note.md" in the root of your project.
@@ -7,10 +13,11 @@ Copy these todos into a file called "Note.md" in the root of your project.
 You will use that file to keep track of your progress.
 
 {% for item in result
-%}{{ loop.index }}{% if item.todos | length > 0
-  %}{% for todo in item.todos
-%}{{loop.index1}}. [ ] {{todo.text}}
-    *([{{item.filename}}:{{ todo.line_number }}]({{item.location}}:{{todo.line_number}}))*{% endfor %}{% endif %}
+%}{{ loop.index }}. {{item.name}} (`{{ item.location }}`)
+{% for todo in item.todos
+%}   - [ ] {{todo.text}}
+       *([{{item.name}}:{{ todo.line_number }}]({{item.location}}#{{todo.line_number}}))*
+{% endfor %}
 {% endfor %}
 
 ## File Content Code Blocks
