@@ -1,6 +1,7 @@
 import click
 import os
 import logging
+from typing import List
 from clipboard_maximizer import copy_to_clipboard
 from .fs_utils import collect_files
 from .todo_utils import search_todos_in_file
@@ -25,7 +26,7 @@ logging.getLogger("gitignore_parser").setLevel(logging.WARNING)
     "--result_file",
     "-r",
     type=click.Path(file_okay=True, writable=True),
-    default="./TODO.md",
+    default="./ZIPPITYDO.md",
 )
 @click.option(
     "--template_file", "-t", type=click.Path(exists=True, file_okay=True, readable=True)

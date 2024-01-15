@@ -45,13 +45,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 
 [[package]]
 name = "clipboard-maximizer"
-version = "0.2.2"
+version = "0.2.3"
 description = ""
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "clipboard_maximizer-0.2.2-py3-none-any.whl", hash = "sha256:a89fc0c7758afbe1d0291a2068c1ab1980c8eaaf5b644710cd2de7cacc4e3dec"},
-    {file = "clipboard_maximizer-0.2.2.tar.gz", hash = "sha256:e47ea9ce428e9912a4c90e7c97230642ba3c12206f50d39cad75eba537d875d4"},
+    {file = "clipboard_maximizer-0.2.3-py3-none-any.whl", hash = "sha256:d4c65ad1ae58f2cf3041b8391a2d2e08e92d79adc4800bf0e893c8493eeee73f"},
+    {file = "clipboard_maximizer-0.2.3.tar.gz", hash = "sha256:9665a966a7d3543c5177756a306d728cc8f8cc338fb1d471a8ef5bb10167def9"},
 ]
 
 [package.dependencies]
@@ -371,4 +371,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "df8c1e268a2d1f06da904ddb1c80137cb460a6123ef41398ad4f0fd61a853477"
+content-hash = "695d158c6f5ccc7770185be2716f296805e9fed30b6ce5fa2dd200f518f3da33"
