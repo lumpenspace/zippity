@@ -7,6 +7,10 @@
 
  dum lil CLI to collect TODOs for ChatGPT
 
+## Warns
+
+I'm currently preparing the companion GPT; you are welcome to use it in the meantime but it's going to be disappointing.
+
 ![alt text](cover.png)
 
 ## Installation
