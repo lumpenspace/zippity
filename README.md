@@ -1,9 +1,8 @@
 # Zippity
 
-[![PyPI version](https://badge.fury.io/py/zippity.svg)](https://badge.fury.io/py/zippity)
-[![Build Status](https://travis-ci.com/ChatGPT/zippity.svg?branch=master)](https://travis-ci.com/ChatGPT/zippity)
-[![codecov](https://codecov.io/gh/ChatGPT/zippity/branch/master/graph/badge.svg)](https://codecov.io/gh/ChatGPT/zippity)
-[![Documentation Status](https://readthedocs.org/projects/zippity/badge/?version=latest)](https://zippity.readthedocs.io/en/latest/?badge=latest)
+[![PyPI version](https://badge.fury.io/py/zippity-pi.svg)](https://badge.fury.io/py/zippity=pi)
+[![codecov](https://codecov.io/gh/lumpenspace/zippity/branch/master/graph/badge.svg)](https://codecov.io/gh/lumpenspace/zippity)
+[![Documentation Status](https://readthedocs.org/projects/zippity-pi/badge/?version=latest)](https://zippity-pi.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
  dum lil CLI to collect TODOs for ChatGPT
