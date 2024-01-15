@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zippity-py"
-version = "0.1.1-alpha"
+version = "0.1.1"
 description = "dum lil CLI tool to create summary files with todos and extracts from source code for chatbots."
 authors = ["lumpenspace <lumpenspace@gmail.com>"]
 readme = "README.md"

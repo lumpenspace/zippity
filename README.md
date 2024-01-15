@@ -1,4 +1,4 @@
-# Zippity - dum lil CLI to collect TODOs for ChatGPT
+# Zippity
 
 [![PyPI version](https://badge.fury.io/py/zippity.svg)](https://badge.fury.io/py/zippity)
 [![Build Status](https://travis-ci.com/ChatGPT/zippity.svg?branch=master)](https://travis-ci.com/ChatGPT/zippity)
@@ -6,7 +6,10 @@
 [![Documentation Status](https://readthedocs.org/projects/zippity/badge/?version=latest)](https://zippity.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a Python command-line interface (CLI) package developed using Poetry.
+ dum lil CLI to collect TODOs for ChatGPT
+
+
+![alt text](cover.png)
 
 ## Installation
 
@@ -21,13 +24,13 @@ After installation, you can use the CLI by running:
 ```bash
 
 
-> zippity --help
+> zpt --help
 
-Usage: zippity [OPTIONS] [SOURCE_DIRECTORY]
+Usage: zpt [OPTIONS] [SOURCE_DIRECTORY]
 
 Options:
   -e, --extensions TEXT (Default: '.py,.js,.ts')
-  -r, --result_file PATH  (Default: 'ZIPPITYDO.md')
+  -r, --result_file PATH  (Default: 'ZIPPITYDO_EXAMPLE.md')
   -t, --template_file PATH
   --help    
 ```

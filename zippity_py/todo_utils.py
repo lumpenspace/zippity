@@ -43,9 +43,14 @@ def search_todos_in_file(file: FileData) -> List[Todo]:
     if mime in [None, False, "text/plain"]:
         return None
     todos = []
-    comments = comment_parser.extract_comments_from_str(
-        file_content, mime=file["mimetype"]
-    )
+    try:
+        comments = comment_parser.extract_comments_from_str(
+            file_content, mime=mime
+        )
+    except UnsupportedError as e:
+        print(f"Unsupported file type: {mime}")
+        return None
+
     for comment in comments:
         if comment.text().strip().startswith("TODO"):
             todos.append(
