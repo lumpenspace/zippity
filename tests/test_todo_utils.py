@@ -1,6 +1,6 @@
 import pytest
 import os
-from zippity.todo_utils import init_path_and_get_content, search_todos_in_file, FileData
+from zippity_py.todo_utils import init_path_and_get_content, search_todos_in_file, FileData
 
 # TODO: fix tests
 

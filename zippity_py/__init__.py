@@ -1,0 +1,1 @@
+from zippity_py.cli import main

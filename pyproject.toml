@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "zippity"
+name = "zippity-py"
 version = "0.1.1-alpha"
 description = "dum lil CLI tool to create summary files with todos and extracts from source code for chatbots."
 authors = ["lumpenspace <lumpenspace@gmail.com>"]
@@ -22,4 +22,4 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-zippity = 'zippity.cli:main'
+zpt = 'zippity_py.cli:main'

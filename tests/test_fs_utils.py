@@ -1,5 +1,5 @@
 import os
-from zippity.fs_utils import (
+from zippity_py.fs_utils import (
     get_gitignore_matcher,
     collect_files,
     find_gitignore,
