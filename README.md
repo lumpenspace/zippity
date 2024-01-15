@@ -8,7 +8,6 @@
 
  dum lil CLI to collect TODOs for ChatGPT
 
-
 ![alt text](cover.png)
 
 ## Installation
@@ -66,7 +65,7 @@ Todo = TypedDict(
 
 The default template is in [template/template.md](zippity/template/default.md.jinja); once compiled it looks like this:
 
-![Screenshot](screenshot.pngpng>)
+![Screenshot](screenshot.png)
 
 ## Contributing
 
