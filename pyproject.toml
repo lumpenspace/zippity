@@ -1,8 +1,9 @@
 [tool.poetry]
-name = "zippity-py"
-version = "0.1.0"
+name = "zippity"
+version = "0.1.1-alpha"
 description = "dum lil CLI tool to create summary files with todos and extracts from source code for chatbots."
 authors = ["lumpenspace <lumpenspace@gmail.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -13,6 +14,7 @@ comment-parser = "^1.2.4"
 clipboard-maximizer = "^0.2.3"
 
 [tool.poetry.dev-dependencies]
+poetry-plugin-export = "^1.6.0"
 pytest = "^6.2.2"
 
 [build-system]

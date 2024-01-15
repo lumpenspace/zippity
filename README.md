@@ -1,6 +1,4 @@
-# Zippity - dum lil CLI to collect TODOs for ChatGPT to use.
-
-# Zippity - dum lil CLI to collect TODOs for ChatGPT to use.
+# Zippity - dum lil CLI to collect TODOs for ChatGPT
 
 [![PyPI version](https://badge.fury.io/py/zippity.svg)](https://badge.fury.io/py/zippity)
 [![Build Status](https://travis-ci.com/ChatGPT/zippity.svg?branch=master)](https://travis-ci.com/ChatGPT/zippity)
@@ -13,7 +11,7 @@ This is a Python command-line interface (CLI) package developed using Poetry.
 ## Installation
 
 ```shell
-pipx install zippity-py
+pipx install zippity_py
 ```
 
 ## Usage
