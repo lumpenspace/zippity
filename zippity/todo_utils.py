@@ -15,6 +15,8 @@ FileTodos = ('FileTodos', {
     'name': str,
     })
 
+# TODO: add tests
+
 def init_path_and_get_content(file_path) -> str:
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
@@ -22,10 +24,12 @@ def init_path_and_get_content(file_path) -> str:
 
 def search_todos_in_file(file: FileData) -> List[Todo]:
     file_content = init_path_and_get_content(file['location'])
-
+    mime = file['mimetype']
+    if mime in [None, False, 'text/plain']:
+        return None
     todos = []
     comments = comment_parser.extract_comments_from_str(file_content, mime=file['mimetype'])
-    
+    print(comments)
     for comment in comments:
         if (comment.text().strip().startswith('TODO')):
             todos.append({

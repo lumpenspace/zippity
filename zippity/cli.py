@@ -27,26 +27,19 @@ def main(source_directory, extensions, result_file, template_file):
             result.append(todos)
             
     if (len(result) == 0):
-        p(msg="No TODOs found.", c='white', a=['bold'])
+        p(msg="No TODOs found.", c='white')
         return
 
-    p(msg=f"{len(result)} todos found.", c='white', a=['bold'])
+    p(msg=f"{len(result)} todos found.", c='white')
     # Write the document to the result file
     with open(result_file, 'w', encoding='utf-8') as outfile:
         outfile.write(render(result, template_file))
 
     filename = click.format_filename(result_file)
-    p(f"📋 TODOs written to: \b{filename}", c="green")
-
+    p(f"📋 TODOs written to: \b{filename}", c="green", b=True)
     
-    try:
-        # TODO: Mute any output from this function
-        copy_to_clipboard(result_file)
-        p("and copied to clipboard.", c='green')
-        return
-    except Exception as e:
-        p("Failed to copy TODOs to clipboard.", c='gray')
-    exit(0)
+    copy_to_clipboard([ os.path.abspath(source_directory)])
+    return
 
 if __name__ == '__main__':
     main()

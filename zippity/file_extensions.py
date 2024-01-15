@@ -15,4 +15,7 @@ def get_file_extension(path:str) -> str or None:
         return None
 
 def get_mime_matcher(extensions=file_extensions) -> callable:
-    return lambda f: mimetypes.guess_type(f, strict=True)[0] if get_file_extension(f) in extensions else None
+    def get_mime(x):
+        mime = mimetypes.guess_type(x, strict=True)[0] if get_file_extension(x) in extensions else None
+        return mime
+    return get_mime
