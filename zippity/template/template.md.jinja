@@ -6,23 +6,24 @@ Copy these todos into a file called "Note.md" in the root of your project.
 
 You will use that file to keep track of your progress.
 
-{% for path, data in todos.items()
-%}{{ loop.index }}{% if data.todos | length > 0
-  %}{% for todo in data.todos
-%}{{loop.index1}}. [ ] {{todo[1]}}
-    *([{{path.split("/")[-1]}}:{{ todo[0] }}]({{path}}:{{ todo[0] }}))*{% endfor %}{% endif %}
+{% for item in result
+%}{{ loop.index }}{% if item.todos | length > 0
+  %}{% for todo in item.todos
+%}{{loop.index1}}. [ ] {{todo.text}}
+    *([{{item.filename}}:{{ todo.line_number }}]({{item.location}}:{{todo.line_number}}))*{% endfor %}{% endif %}
 {% endfor %}
 
 ## File Content Code Blocks
 
 Copy each code block into the appropriate file.{%
-for path, data in todos.items() %}
+for item in result %}
 
-### {{ path.split("/")[-1] }}
+### {{item.name}}
 
-```{{ data.language }} file:{{ path }}
+(`{{ item.location }}`)
 
-{{ data.content }}
+```{{ item.language }}
+{{ item.content }}
 ```
 
 {% endfor %}

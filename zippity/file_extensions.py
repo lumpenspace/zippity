@@ -1,25 +1,78 @@
 import os
+import mimetypes
 
-def get_file_extension(path:str):
-    return os.path.splitext(path)[1]
+file_extensions = [
+    ".py",
+    ".js",
+    ".jsx",
+    ".ts",
+    ".tsx",
+    ".c",
+    ".cpp",
+    ".h",
+    ".hpp",
+    ".cs",
+    ".go",
+    ".java",
+    ".php",
+    ".rb",
+    ".rs",
+    ".swift",
+    ".vb",
+    ".vue",
+    ".sql",
+    ".sh",
+    ".ps1",
+    ".bat",
+    ".cmd",
+    ".psm1",
+    ".psd1",
+    ".ps1xml",
+    ".clj",
+    ".toml",
+    ".json",
+    ".json5",
+    ".cljc",
+    ".cljs",
+    ".edn",
+    ".lua",
+    ".r",
+    ".dart",
+    ".erl",
+    ".ex",
+    ".exs",
+    ".elm",
+    ".hrl",
+    ".yaml",
+    ".yml",
+    ".hs",
+    ".sml",
+    ".ml",
+    ".mli",
+    ".cmi",
+    ".cmo",
+    ".cma",
+    ".cmx",
+    ".cmt",
+    ".cmti",
+    ".re",
+]
 
-def get_language_from_file_extension(path:str):
-    extension = get_file_extension(path)
-    if extension not in file_extensions:
+
+def get_file_extension(path: str) -> str or None:
+    try:
+        return os.path.splitext(path)[1].lower()
+    except:
         return None
 
-    if extension == '.php':
-        # except and exit
-        raise Exception('PHP is not supported. You don\'t have to live this way.')
-    return file_extensions[get_file_extension(path)]
 
-file_extensions = {
-    '.py': 'python', '.js': 'javascript', '.jsx': 'jsx', '.ts': 'typescript', '.tsx': 'tsx', '.c': 'c', '.cpp': 'cpp', '.h': 'cpp', '.hpp': 'cpp', '.cs': 'csharp',
-    '.go': 'go', '.java': 'java', '.php': 'php', '.rb': 'ruby', '.rs': 'rust', '.swift': 'swift', '.vb': 'vb', '.vue': 'vue', '.html': 'html', '.css': 'css',
-    '.scss': 'scss', '.sass': 'sass', '.less': 'less', '.styl': 'stylus','.sql': 'sql','.sh': 'shell','.ps1': 'powershell','.bat': 'batch','.cmd': 'batch',
-    '.psm1': 'powershell','.psd1': 'powershell','.ps1xml': 'powershell','.clj': 'clojure','.toml': 'toml','.json': 'json', '.json5': 'json',
-    '.cljc': 'clojure','.cljs': 'clojure','.edn': 'clojure','.lua': 'lua','.r': 'r','.dart': 'dart','.erl': 'erlang','.ex': 'elixir','.exs': 'elixir', 
-    '.elm': 'elm','.hrl': 'erlang','.yaml': 'yaml','.yml': 'yaml', '.hs': 'haskell','.sml': 'sml','.ml': 'ocaml','.mli': 'ocaml','.cmi': 'ocaml',
-    '.cmo': 'ocaml','.cma': 'ocaml','.cmx': 'ocaml','.cmt': 'ocaml','.cmti': 'ocaml','.re': 'reason'
-}
+def get_mime_matcher(extensions=file_extensions) -> callable:
+    def get_mime(x):
+        mime = (
+            mimetypes.guess_type(x, strict=True)[0]
+            if get_file_extension(x) in extensions
+            else None
+        )
+        return mime
 
+    return get_mime

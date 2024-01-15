@@ -1,4 +1,4 @@
-# My CLI Package
+# Zippity - Collect your TODOs for ChatGPT to use.
 
 This is a Python command-line interface (CLI) package developed using Poetry.
 
