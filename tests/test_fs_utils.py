@@ -1,57 +1,60 @@
+"""Test fs_utils.py"""
+
+# pylint: disable=missing-function-docstring
+
 import os
-from zippity_py.fs_utils import (
-    get_gitignore_matcher,
-    collect_files,
-    find_gitignore,
-    collect_non_ignored_files,
-)
+from typing import Callable
+
 import pytest
+
+from zippity_py.fs_utils import (
+    collect_files,
+    collect_non_ignored_files,
+    get_gitignore_matcher,
+)
 
 
 @pytest.fixture
-def test_files_directory():
+def test_files_directory() -> str:
     return "./tests/test_environment"  # Update with actual path
 
 
 @pytest.fixture
-def with_gitignore(test_files_directory):
+def with_gitignore(test_files_directory: str) -> str:
     return os.path.join(
         test_files_directory, "fs_test_files", "directory_with_gitignore"
     )
 
 
 @pytest.fixture
-def without_gitignore(test_files_directory):
+def without_gitignore(test_files_directory: str) -> str:
     return os.path.join(test_files_directory, "todo_test_files")
 
 
-def test_get_gitignore_matcher_with_gitignore(with_gitignore):
-    # Test with a valid directory containing a `.gitignore` file
-    matcher = get_gitignore_matcher(with_gitignore)
+def test_get_gitignore_matcher_with_gitignore(with_gitignore: str) -> None:
+    matcher: Callable[[str], bool] = get_gitignore_matcher(with_gitignore)
     assert matcher is not None
 
 
-def test_get_gitignore_matcher_without_gitignore(without_gitignore):
-    # Test with a directory without a `.gitignore` file
-    matcher = get_gitignore_matcher(without_gitignore)
+def test_get_gitignore_matcher_without_gitignore(without_gitignore: str) -> None:
+    matcher: Callable[[str], bool] = get_gitignore_matcher(without_gitignore)
     assert not matcher("")
 
 
-def test_collect_files_valid(without_gitignore):
+def test_collect_files_valid(without_gitignore: str) -> None:
     # Test with a valid directory and file extensions
     files = list(collect_files(without_gitignore, [".py", ".txt"]))
     files = [file["name"] for file in files]
     assert len(files) > 0
 
 
-def test_collect_files_invalid():
+def test_collect_files_invalid() -> None:
     # Test with an empty or invalid directory
     with pytest.raises(Exception):
         list(collect_files("invalid_dir", ["py", "txt"]))
 
 
-def test_collect_non_ignored_files_valid(without_gitignore):
-    # Test with a valid directory and mime matcher
+def test_collect_non_ignored_files_valid(without_gitignore: str) -> None:
     files = list(
         collect_non_ignored_files(without_gitignore, lambda x: "text/x-python")
     )

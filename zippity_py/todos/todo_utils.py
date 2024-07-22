@@ -1,6 +1,14 @@
+"""
+Todo utils.
+"""
+
 from typing import List, TypedDict
 from comment_parser import comment_parser
-from .fs_utils import FileData
+from comment_parser.comment_parser import UnsupportedError
+from comment_parser.parsers.common import Comment
+from zippity_py.cli_utils import p
+from zippity_py.fs_utils import init_path_and_get_content
+from ..fs_utils import FileData
 
 Todo = TypedDict(
     "Todo",
@@ -22,13 +30,18 @@ FileTodos = TypedDict(
 )
 
 
-def init_path_and_get_content(file_path: str) -> str:
-    with open(file_path, "r", encoding="utf-8") as file:
-        content = file.read()
-    return content
+def collect_todos_from_file(file: FileData) -> FileTodos | None:
+    """Collect todos and context from files."""
+    file_todos: FileTodos | None = search_todos_in_file(file)
+    if file_todos is None:
+        p(msg=f"No TODOs found in {file.get('name')}", c="white")
+        return None
+
+    p(msg=f"{len(file_todos['todos'])} todos found.", c="white")
+    return file_todos
 
 
-def search_todos_in_file(file: FileData) -> List[Todo]:
+def search_todos_in_file(file: FileData) -> FileTodos | None:
     """
     Searches for TODO comments in a file and returns a list of todos.
 
@@ -38,17 +51,17 @@ def search_todos_in_file(file: FileData) -> List[Todo]:
     Returns:
         List[Todo]: A list of todos found in the file, or None if no todos are found.
     """
-    file_content = init_path_and_get_content(file["location"])
-    mime = file["mimetype"]
+    file_content: str = init_path_and_get_content(file["location"])
+    mime: str = file["mimetype"]
     if mime in [None, False, "text/plain"]:
         return None
-    todos = []
+    todos: List[Todo] = []
     try:
-        comments = comment_parser.extract_comments_from_str(
+        comments: List[Comment] = comment_parser.extract_comments_from_str(
             file_content, mime=mime
         )
     except UnsupportedError as e:
-        print(f"Unsupported file type: {mime}")
+        print(f"Unsupported file type: {mime}, {e}")
         return None
 
     for comment in comments:
@@ -63,7 +76,9 @@ def search_todos_in_file(file: FileData) -> List[Todo]:
         return {
             "todos": todos,
             "content": file_content,
-            **file,
+            "language": file["language"],
+            "mimetype": file["mimetype"],
+            "name": file["name"],
         }
     else:
         return None

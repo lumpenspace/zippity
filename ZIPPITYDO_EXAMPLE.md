@@ -22,8 +22,6 @@ You will use that file to keep track of your progress.
    - [ ] add more tests
        *([file_with_todos.py:4](./tests/test_environment/todo_test_files/file_with_todos.py#4))*
 
-
-
 ## File Content Code Blocks
 
 Copy each code block into the appropriate file.
@@ -82,8 +80,6 @@ class TestTodoUtils(object):
 
 ```
 
-
-
 ### file_with_todos.py
 
 (`./tests/test_environment/todo_test_files/file_with_todos.py`)
@@ -97,4 +93,3 @@ class TestTodoUtils(object):
 def test_get_gitignore_matcher():
     pass
 ```
-

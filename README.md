@@ -1,17 +1,11 @@
-# Zippity
-
-[![PyPI version](https://badge.fury.io/py/zippity-pi.svg)](https://badge.fury.io/py/zippity=pi)
-[![codecov](https://codecov.io/gh/lumpenspace/zippity/branch/master/graph/badge.svg)](https://codecov.io/gh/lumpenspace/zippity)
-[![Documentation Status](https://readthedocs.org/projects/zippity-pi/badge/?version=latest)](https://zippity-pi.readthedocs.io/en/latest/?badge=latest)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
- dum lil CLI to collect TODOs for ChatGPT
-
-## Warns
-
-I'm currently preparing the companion GPT; you are welcome to use it in the meantime but it's going to be disappointing.
+# ZPT - Zip it for GPT
 
 ![alt text](cover.png)
+
+With ZPT you can:
+
+- Collect TODOs from your codebase
+- Use the TODOs to generate a markdown file that can be used to create a GPT prompt
 
 ## Installation
 
@@ -66,7 +60,7 @@ Todo = TypedDict(
 )
 ```
 
-The default template is in [template/template.md](zippity/template/default.md.jinja); once compiled it looks like this:
+The default template is in [todo/todo_template.md](zippity/todo/todo_template.md.jinja); once compiled it looks like this:
 
 ![Screenshot](screenshot.png)
 
